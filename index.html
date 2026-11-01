@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>Marson Arya Bagas Prasetyo - Portofolio</title>
+<style>
+:root{--bg:#000;--fg:#fff;--mid:#888;--d:"Arial Black","Helvetica Neue",Impact,sans-serif;--m:ui-monospace,"SF Mono",Consolas,monospace}
+[data-theme=light]{--bg:#fff;--fg:#000;--mid:#666}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--m);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18;background:radial-gradient(var(--mid) 1px,transparent 1.5px) 0 0/7px 7px}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.wrap{padding:0 clamp(14px,3vw,40px)}
+h1,h2,h3{font-family:var(--d);font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:-.04em}
+.out{color:transparent;-webkit-text-stroke:2px var(--fg)}
+
+nav{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:10px clamp(14px,3vw,40px);background:var(--bg);border-bottom:4px solid var(--fg)}
+nav b{font:900 20px var(--d);letter-spacing:-.04em;margin-right:auto}
+nav div{display:flex;gap:6px;flex-wrap:wrap}
+nav a,nav button{font:700 13px var(--m);text-decoration:none;padding:5px 12px;border:2px solid var(--fg);background:var(--bg);color:var(--fg);cursor:pointer}
+nav a:hover,nav button:hover{background:var(--fg);color:var(--bg)}
+
+.mq{overflow:hidden;background:var(--fg);color:var(--bg);border-block:4px solid var(--fg)}
+.mq div{display:flex;width:max-content;animation:mq 28s linear infinite}
+.mq span{font:900 clamp(22px,4vw,44px)/1.3 var(--d);text-transform:uppercase;padding-right:.6em;white-space:nowrap}
+.mq .o{color:transparent;-webkit-text-stroke:2px var(--bg)}
+.mq.inv{background:var(--bg);color:var(--fg);border-inline:0}
+.mq.inv .o{-webkit-text-stroke-color:var(--fg)}
+.mq.rev div{animation-direction:reverse}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.hero{display:grid;grid-template-columns:1.5fr 1fr;border-bottom:4px solid var(--fg)}
+.hero .l{padding:clamp(20px,4vw,50px) clamp(14px,3vw,40px);border-right:4px solid var(--fg);overflow:hidden}
+.hero h1{font-size:clamp(90px,17vw,300px);margin-left:-.04em}
+.hero h1 span{display:block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}.hero h1 span+span{animation-delay:.18s}
+.hero p{font-size:clamp(16px,2vw,22px);max-width:34ch;margin-top:22px;font-weight:700}
+.hero .r{position:relative;min-height:380px;background:repeating-linear-gradient(135deg,var(--fg) 0 3px,var(--bg) 3px 16px);background-size:22.63px 22.63px;animation:slide 1.4s linear infinite;display:grid;place-items:center;padding:24px}
+.photo{position:relative;transition:transform .3s,box-shadow .3s;width:min(100%,320px);aspect-ratio:3/4;border:6px solid var(--fg);background:var(--bg);display:grid;place-items:center;text-align:center;font:900 28px/1.1 var(--d);text-transform:uppercase;box-shadow:14px 14px 0 var(--fg);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(1) contrast(1.15)}
+.sticker{position:absolute;top:18px;right:18px;width:112px;height:112px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;text-align:center;font:900 15px/1.05 var(--d);text-transform:uppercase;animation:swing 3s ease-in-out infinite alternate;border:4px solid var(--bg);outline:4px solid var(--fg)}
+
+section{border-bottom:4px solid var(--fg);padding:clamp(30px,6vw,80px) 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(24px,4vw,50px)}
+.sh h2{font-size:clamp(56px,10.5vw,170px)}
+.sh p{max-width:36ch;color:var(--mid)}
+
+.ab{display:grid;grid-template-columns:1fr 1fr;border:4px solid var(--fg)}
+.ab>div{padding:clamp(16px,3vw,34px)}
+.ab>div:first-child{border-right:4px solid var(--fg);font-size:clamp(17px,1.8vw,22px)}
+.ab dl{display:grid;grid-template-columns:auto 1fr}
+.ab dt,.ab dd{padding:12px 14px;border-bottom:2px solid var(--fg)}
+.ab dt{font-weight:700;color:var(--mid);border-right:2px solid var(--fg)}
+.ab dd{font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:4px solid var(--fg);border-top:0}
+.stats div{padding:20px;border-right:4px solid var(--fg)}
+.stats div:last-child{border:0}
+.stats b{display:block;font:900 clamp(26px,5vw,64px)/1 var(--d);text-transform:uppercase;letter-spacing:-.04em}
+.stats i{font-style:normal;color:var(--mid)}
+
+.sk{display:grid;grid-template-columns:repeat(3,1fr);border:4px solid var(--fg)}
+.sk article{padding:28px 22px;border-right:4px solid var(--fg);display:flex;flex-direction:column;gap:16px;transition:background .15s,color .15s}
+.sk article:last-child{border:0}
+.sk h3{font-size:clamp(30px,4vw,54px)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tools span{font-size:clamp(14px,2vw,20px);font-weight:700;padding:6px 16px;border:3px solid var(--fg)}
+
+.ac{border:4px solid var(--fg)}
+.ac article{display:grid;grid-template-columns:150px 1fr 1fr;border-bottom:4px solid var(--fg);transition:background .15s,color .15s}
+.ac article:last-child{border:0}
+.ac article>*{padding:22px}
+.ac .y{font:900 clamp(36px,5vw,64px)/1 var(--d);border-right:4px solid var(--fg);letter-spacing:-.05em}
+.ac h3{font-size:clamp(24px,3.4vw,44px);line-height:.95}
+.ac small{display:block;margin-top:10px;font-size:14px;font-weight:700;opacity:.7}
+.ac article:hover .y{border-color:var(--bg)}
+
+.ct{background:var(--fg);color:var(--bg)}
+.ct .big{font-size:clamp(60px,15vw,240px);margin-bottom:clamp(24px,4vw,50px)}
+.ct .out{-webkit-text-stroke-color:var(--bg)}
+.links{display:grid;grid-template-columns:repeat(3,1fr);border:4px solid var(--bg)}
+.links a{padding:22px;text-decoration:none;border-right:4px solid var(--bg);font-weight:700;word-break:break-all}
+.links a:last-child{border:0}
+.links a{background:linear-gradient(var(--bg),var(--bg)) 0 100%/0 100% no-repeat;transition:background-size .35s,color .35s}.links a:hover{background-size:100% 100%;color:var(--fg)}
+.links b{display:block;font:900 clamp(22px,3vw,36px)/1 var(--d);text-transform:uppercase;margin-bottom:8px;letter-spacing:-.03em}
+.btn{display:inline-block;margin-top:28px;font:900 clamp(20px,3vw,34px) var(--d);text-transform:uppercase;text-decoration:none;padding:16px 32px;background:var(--bg);color:var(--fg);border:4px solid var(--bg)}
+.btn:hover{background:var(--fg);color:var(--bg)}
+footer{padding:20px clamp(14px,3vw,40px);font-weight:700;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:4px solid var(--fg);background:var(--bg)}
+
+
+.sk article,.ac article{background:linear-gradient(var(--fg),var(--fg)) 0 100%/100% 0 no-repeat;transition:background-size .35s ease,color .35s ease}
+.sk article:hover,.ac article:hover{background-size:100% 100%;color:var(--bg)}
+.mq:hover div{animation-play-state:paused}
+h1 .out,h2 .out{transition:color .3s}
+h1:hover .out,.sh h2:hover .out{color:var(--fg)}
+.ct .big:hover .out{color:var(--bg)}
+.photo:hover{transform:translate(-6px,-6px);box-shadow:20px 20px 0 var(--fg)}
+.photo::after{content:"";position:absolute;left:0;right:0;height:10%;background:linear-gradient(transparent,#fff,transparent);opacity:.45;pointer-events:none;animation:scan 3.2s ease-in-out infinite}
+.stripe{height:46px;border-bottom:4px solid var(--fg);background:repeating-linear-gradient(135deg,var(--fg) 0 8px,var(--bg) 8px 24px);background-size:33.94px 33.94px;animation:slide2 1s linear infinite}
+#bar{position:fixed;top:0;left:0;height:6px;width:100%;background:#fff;mix-blend-mode:difference;transform:scaleX(0);transform-origin:0 50%;z-index:20}
+body,nav,.mq,.ct,footer,section{transition:background-color .4s,color .4s,border-color .4s}
+.rv{opacity:0}
+.rv.in{animation:pop .75s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes rise{from{transform:translateY(70%);opacity:0;clip-path:inset(0 0 100% 0)}to{transform:none;opacity:1;clip-path:inset(0)}}
+@keyframes swing{from{transform:rotate(6deg) scale(1)}to{transform:rotate(22deg) scale(1.08)}}
+@keyframes slide{to{background-position:22.63px 0}}
+@keyframes slide2{to{background-position:33.94px 0}}
+@keyframes scan{from{top:-12%}to{top:112%}}
+@keyframes pop{from{opacity:0;transform:translateY(46px) scale(.96)}to{opacity:1;transform:none}}
+.mb{display:none}
+#burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:0;width:42px;height:34px}
+#burger span{width:18px;height:3px;background:currentColor;transition:transform .3s,opacity .3s}
+.menu-open #burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-open #burger span:nth-child(2){opacity:0}
+.menu-open #burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav a.on{background:var(--fg);color:var(--bg)}
+.sticker{z-index:2}
+section{scroll-margin-top:60px}
+.sk article:active,.ac article:active{background-size:100% 100%;color:var(--bg)}
+.links a:active{background-size:100% 100%;color:var(--fg)}
+@media(max-width:820px){
+ .hero,.ab,.sk,.links{grid-template-columns:1fr}
+ .hero .l,.ab>div:first-child,.sk article,.links a{border-right:0;border-bottom:4px solid var(--fg)}
+ .links a{border-bottom-color:var(--bg)}
+ .sk article:last-child,.links a:last-child{border-bottom:0}
+ .ac article{grid-template-columns:1fr}
+ .ac .y{border-right:0;border-bottom:4px solid var(--fg)}
+ html{-webkit-text-size-adjust:100%}
+ nav{height:56px;padding:0 14px;gap:8px;flex-wrap:nowrap}
+ nav b{font-size:18px}
+ nav button{height:34px;padding:0 12px;font-size:12px}
+ #burger{display:flex;padding:0}
+ #menu{position:fixed;left:0;right:0;top:56px;height:calc(100vh - 56px);height:calc(100dvh - 56px);display:flex;flex-direction:column;flex-wrap:nowrap;gap:0;background:var(--bg);visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .45s cubic-bezier(.7,0,.2,1),visibility 0s .45s}
+ .menu-open #menu{visibility:visible;clip-path:inset(0);transition:clip-path .45s cubic-bezier(.7,0,.2,1)}
+ #menu a{flex:1;display:flex;align-items:center;border:0;border-bottom:4px solid var(--fg);padding:0 14px;font:900 clamp(36px,12vw,64px)/1 var(--d);text-transform:uppercase;letter-spacing:-.04em;transform:translateY(24px);opacity:0;transition:transform .4s,opacity .4s,background-color .2s,color .2s}
+ #menu a:last-child{border-bottom:0}
+ .menu-open #menu a{transform:none;opacity:1}
+ .menu-open #menu a:nth-child(1){transition-delay:.12s,.12s,0s,0s}
+ .menu-open #menu a:nth-child(2){transition-delay:.18s,.18s,0s,0s}
+ .menu-open #menu a:nth-child(3){transition-delay:.24s,.24s,0s,0s}
+ .menu-open #menu a:nth-child(4){transition-delay:.30s,.30s,0s,0s}
+ html.menu-open,html.menu-open body{overflow:hidden}
+ section{scroll-margin-top:68px;padding:34px 0}
+ .hero .l{padding:24px 14px 28px}
+ .hero p{font-size:16px;margin-top:16px}
+ .hero .r{min-height:0;padding:28px 24px 36px}
+ .photo{width:min(100%,260px);box-shadow:10px 10px 0 var(--fg)}
+ .sticker{width:92px;height:92px;font-size:12px;top:10px;right:10px}
+ .sh{margin-bottom:22px}
+ .sh h2{font-size:clamp(44px,14vw,120px)}
+ .hero h1{font-size:clamp(90px,26vw,200px)}
+ .mb{display:inline}
+ .ab>div:first-child{font-size:16px}
+ .ab dt,.ab dd{padding:10px}
+ .stats div{padding:14px 10px}
+ .stats b{font-size:clamp(16px,5vw,26px)}
+ .stats i{display:block;font-size:12px;line-height:1.3}
+ .sk article{padding:22px 16px}
+ .ac article>*{padding:16px}
+ .ac .y{font-size:40px}
+ .tools span{font-size:13px;padding:5px 11px}
+ .ct .big{font-size:clamp(40px,14vw,120px)}
+ .links a{padding:18px 16px}
+ .btn{display:block;text-align:center;font-size:20px;padding:14px 16px}
+ .mq span{font-size:22px}
+ footer{flex-direction:column;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1!important}#bar,.photo::after{display:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav>
+  <b>Marson</b>
+  <div id="menu">
+    <a href="#about">About</a>
+    <a href="#skills">What I Can Do</a>
+    <a href="#achievement">Achievement</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button id="theme" type="button" aria-label="Ganti tema hitam atau putih">Invert</button>
+  <button id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Buka menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header>
+  <div class="hero">
+    <div class="l">
+      <h1><span>Halo</span><span class="out">Halo</span></h1>
+      <p>Saya Marson Arya Bagas Prasetyo, mahasiswa baru Teknik Informatika yang sedang belajar membuat website.</p>
+    </div>
+    <div class="r">
+      <div class="sticker">Lagi belajar</div>
+      <div class="photo"><img src="foto.jpg" alt="Foto Marson Arya Bagas Prasetyo"></div>
+    </div>
+  </div>
+  <div class="mq" aria-hidden="true"><div>
+    <span>Mahasiswa Baru</span><span class="o">Teknik Informatika</span><span>Lagi Belajar</span><span class="o">Ngoding</span>
+    <span>Mahasiswa Baru</span><span class="o">Teknik Informatika</span><span>Lagi Belajar</span><span class="o">Ngoding</span>
+    <span>Mahasiswa Baru</span><span class="o">Teknik Informatika</span><span>Lagi Belajar</span><span class="o">Ngoding</span>
+    <span>Mahasiswa Baru</span><span class="o">Teknik Informatika</span><span>Lagi Belajar</span><span class="o">Ngoding</span>
+  </div></div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <div class="sh"><h2>About <span class="out">me</span></h2><p>Profil singkat, pendidikan, dan aktivitas saya saat ini.</p></div>
+    <div class="ab">
+      <div>
+        <p>Halo, saya mahasiswa baru Teknik Informatika di Universitas Negeri Surabaya. Saat ini saya sedang belajar dasar pemrograman dan pembuatan website.</p>
+      </div>
+      <div>
+        <dl>
+          <dt>Nama</dt><dd>Marson Arya Bagas Prasetyo</dd>
+          <dt>NIM</dt><dd>26051204126</dd>
+          <dt>Prodi</dt><dd>S1 Teknik Informatika</dd>
+          <dt>Pendidikan</dt><dd>Universitas Negeri Surabaya</dd>
+          <dt>Aktivitas</dt><dd>Kuliah dan belajar membuat website</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b>TI</b><i>Program studi</i></div>
+      <div><b data-count="2026">2026</b><i>Angkatan</i></div>
+      <div><b>UNESA</b><i>Kampus</i></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq inv rev" aria-hidden="true"><div>
+  <span>Belajar</span><span class="o">Coba</span><span>Salah</span><span class="o">Ulang</span>
+  <span>Belajar</span><span class="o">Coba</span><span>Salah</span><span class="o">Ulang</span>
+  <span>Belajar</span><span class="o">Coba</span><span>Salah</span><span class="o">Ulang</span>
+  <span>Belajar</span><span class="o">Coba</span><span>Salah</span><span class="o">Ulang</span>
+</div></div>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sh"><h2>What I <span class="out">can do</span></h2><p>Hal-hal dasar yang sedang saya pelajari.</p></div>
+    <div class="sk">
+      <article>
+        <h3>HTML dan CSS</h3>
+        <p>Menyusun halaman web sederhana dan mengatur tampilannya.</p>
+      </article>
+      <article>
+        <h3>JavaScript</h3>
+        <p>Belajar dasar logika pemrograman supaya halaman web bisa interaktif.</p>
+      </article>
+      <article>
+        <h3>Git dan GitHub</h3>
+        <p>Menyimpan dan mengunggah proyek ke repositori online.</p>
+      </article>
+    </div>
+    <div class="tools" aria-label="Tools">
+      <span>Visual Studio Code</span><span>Live Server</span><span>Google Chrome</span><span>Git</span><span>GitHub</span>
+    </div>
+  </div>
+</section>
+
+<section id="achievement">
+  <div class="wrap">
+    <div class="sh"><h2>Achieve<br class="mb"><span class="out">ment</span></h2><p>Pencapaian awal perjalanan saya di bidang informatika.</p></div>
+    <div class="ac">
+      <article>
+        <div class="y">2026</div>
+        <div><h3>Diterima di Teknik Informatika</h3><small>Penyelenggara: Universitas Negeri Surabaya</small></div>
+        <div>Resmi menjadi mahasiswa baru Teknik Informatika.</div>
+      </article>
+      <article>
+        <div class="y">2026</div>
+        <div><h3>Website portofolio pertama</h3><small>Penyelenggara: mandiri</small></div>
+        <div>Membuat website portofolio pertama menggunakan HTML dan CSS.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="stripe" aria-hidden="true"></div>
+
+<section id="contact" class="ct">
+  <div class="wrap">
+    <h2 class="big">Let's<br><span class="out">work</span><br>together</h2>
+    <div class="links">
+      <a href="mailto:justeita@proton.me"><b>Email</b>justeita@proton.me</a>
+      <a href="https://github.com/justeita" target="_blank" rel="noopener noreferrer"><b>GitHub</b>github.com/justeita</a>
+      <a href="https://www.linkedin.com/in/marsonarya" target="_blank" rel="noopener noreferrer"><b>LinkedIn</b>linkedin.com/in/marsonarya</a>
+    </div>
+    <a class="btn" href="resume.pdf" download>Unduh CV</a>
+  </div>
+</section>
+</main>
+
+<footer><span>&copy; 2026 Marson Arya Bagas Prasetyo</span><span>Mahasiswa Baru Teknik Informatika</span></footer>
+
+<script>
+(function(){
+  var r=document.documentElement,k="theme-portfolio";
+  var m=document.querySelector("meta[name=theme-color]");function tc(t){if(m)m.content=t==="light"?"#ffffff":"#000000"}
+  try{var s=localStorage.getItem(k);if(s)r.dataset.theme=s}catch(e){}
+  tc(r.dataset.theme);
+  document.getElementById("theme").addEventListener("click",function(){
+    var n=r.dataset.theme==="dark"?"light":"dark";
+    r.dataset.theme=n;tc(n);
+    try{localStorage.setItem(k,n)}catch(e){}
+  });
+})();
+</script>
+<script>
+(function(){
+  var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bar=document.getElementById("bar"),tick=false;
+  if(!calm){
+    addEventListener("scroll",function(){
+      if(tick)return;tick=true;
+      requestAnimationFrame(function(){
+        var h=document.documentElement.scrollHeight-innerHeight;
+        bar.style.transform="scaleX("+(h>0?scrollY/h:0)+")";tick=false;
+      });
+    },{passive:true});
+    var els=document.querySelectorAll(".sh,.ab,.stats div,.sk article,.ac article,.tools span,.ct .big,.links a,.btn");
+    els.forEach(function(el){
+      el.classList.add("rv");
+      el.style.setProperty("--i",Array.prototype.indexOf.call(el.parentNode.children,el));
+    });
+    function count(c){
+      var t=+c.dataset.count,f=t-60,s=null;
+      function step(n){
+        if(s===null)s=n;
+        var k=Math.min((n-s)/900,1);
+        c.textContent=Math.round(f+(t-f)*k);
+        if(k<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    if("IntersectionObserver" in window){
+      var io=new IntersectionObserver(function(list){
+        list.forEach(function(e){
+          if(!e.isIntersecting)return;
+          e.target.classList.add("in");
+          var c=e.target.querySelector("[data-count]");
+          if(c)count(c);
+          io.unobserve(e.target);
+        });
+      },{threshold:.15});
+      els.forEach(function(el){io.observe(el)});
+    }else{els.forEach(function(el){el.classList.add("in")})}
+  }
+})();
+</script>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById("burger"),m=document.getElementById("menu");
+  function set(o){r.classList.toggle("menu-open",o);b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"Tutup menu":"Buka menu")}
+  b.addEventListener("click",function(){set(!r.classList.contains("menu-open"))});
+  m.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});
+  addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+  addEventListener("resize",function(){if(innerWidth>820)set(false)});
+  var links={};
+  m.querySelectorAll("a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a});
+  if("IntersectionObserver" in window){
+    var so=new IntersectionObserver(function(l){
+      l.forEach(function(e){
+        if(e.isIntersecting)for(var k in links)links[k].classList.toggle("on",k===e.target.id);
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    Object.keys(links).forEach(function(k){var el=document.getElementById(k);if(el)so.observe(el)});
+  }
+})();
+</script>
+</body>
+</html>
